@@ -1,83 +1,84 @@
-# Lista A - Aproximar Futuros
+# Lista A · Aproximar Futuros
 
-Bem-vindo ao repositório oficial do website da **Lista A - Aproximar Futuros**, candidata à direção da AAUMinho para o mandato de 2026.
+Official campaign website for **Lista A – Aproximar Futuros**, a candidate list in the University of Minho Students' Union (AAUMinho) board elections for the 2026 term.
 
-Este projeto tem como objetivo servir como a plataforma central de comunicação da campanha, apresentando a equipa, o manifesto, a agenda de eventos e fornecendo um canal direto para dúvidas e sugestões dos estudantes.
+**Live:** [aproximarfuturos.pt](https://www.aproximarfuturos.pt/)
 
-## 📋 Sobre o Projeto
+![Lista A homepage](docs/screenshot.png)
 
-O website foi desenvolvido para oferecer uma experiência de navegação fluida, moderna e informativa. O design reflete a identidade visual da campanha, utilizando um tema escuro com detalhes em ciano, tipografia moderna (Inter e Orbitron) e elementos interativos.
+## About
 
-### Funcionalidades Principais
-- **Início**: Visão geral da campanha e destaques.
-- **Equipa**: Apresentação detalhada dos membros da lista.
-- **Manifesto**: Acesso às propostas e linhas orientadoras da candidatura.
-- **Agenda**: Calendário de eventos de campanha e debates, mantendo a comunidade informada.
-- **Como Votar (FAQ)**: Secção de esclarecimento de dúvidas sobre o processo eleitoral.
-- **Sugestões**: Formulário interativo para os estudantes enviarem as suas ideias e feedback.
+The site was the campaign's main channel to students. It brings together in one place everything a voter needed: who the team is, what they proposed, when the debates were, and how to vote.
 
-## 🚀 Tecnologias Utilizadas
+## Features
 
-Este projeto foi construído utilizando tecnologias web modernas para garantir performance e manutenibilidade:
+- **Home** with an election countdown and campaign highlights
+- **Team** page presenting every member of the list
+- **Manifesto** with the campaign's proposals
+- **Agenda** of campaign events and debates
+- **Debate and interview players**: the official debate video and the Rádio Universitária do Minho (RUM) interview, embedded in the site
+- **How to vote (FAQ)** explaining the election process
+- **Suggestions form** that sends students' questions and ideas to a Google Sheet through Google Apps Script
+- **Instagram feed** of the campaign account
+- Fully responsive, with a dark theme, cyan accents and Inter/Orbitron typography
 
-- **[React](https://react.dev/)**: Biblioteca JavaScript para construção da interface de utilizador.
-- **[Vite](https://vitejs.dev/)**: Ferramenta de build rápida e servidor de desenvolvimento.
-- **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utilitário para estilização rápida e responsiva.
-- **[Lucide React](https://lucide.dev/)**: Biblioteca de ícones leve e consistente.
-- **ESLint**: Ferramenta de linting para manter a qualidade do código.
+## Tech stack
 
-## 📦 Instalação e Execução
+| | |
+|---|---|
+| UI | React 19, Lucide icons |
+| Styling | Tailwind CSS 3 |
+| Build | Vite 6 |
+| Quality | ESLint 9 |
+| Hosting | Vercel |
 
-Para executar este projeto localmente, siga os passos abaixo:
+## Getting started
 
-### Pré-requisitos
-Certifique-se de ter o **Node.js** instalado na sua máquina.
+Requirements: Node.js 18 or newer.
 
-### Passo a Passo
+```bash
+git clone https://github.com/telmomaciel9/Website-Lista-A-AAUMinho-2026.git
+cd Website-Lista-A-AAUMinho-2026
+npm install
+npm run dev
+```
 
-1. **Clone o repositório**
-   ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd website-lista-a
-   ```
+The site runs at `http://localhost:5173`.
 
-2. **Instale as dependências**
-   ```bash
-   npm install
-   ```
+To make the suggestions form work locally, create a `.env` file with the URL of your Google Apps Script web app:
 
-3. **Inicie o servidor de desenvolvimento**
-   ```bash
-   npm run dev
-   ```
+```bash
+VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/<deployment-id>/exec
+```
 
-O website estará disponível em `http://localhost:5173` (ou outra porta indicada no terminal).
+### Scripts
 
-## 🛠️ Estrutura do Projeto
+| Command | What it does |
+|---|---|
+| `npm run dev` | Starts the development server |
+| `npm run build` | Builds the production version into `dist/` |
+| `npm run preview` | Serves the production build locally |
+| `npm run lint` | Runs ESLint |
 
-A estrutura de diretórios do projeto é organizada da seguinte forma:
+## Project structure
 
 ```
 src/
-├── components/      # Componentes reutilizáveis (Shared, ScrollToTop, etc.)
-├── data/           # Dados estáticos (informação da equipa, perguntas frequentes, etc.)
-├── sections/       # Componentes principais que formam as páginas/secções (Home, Team, Manifesto...)
-├── App.jsx         # Componente raiz com a lógica de roteamento e layout principal
-├── AppAntiga.jsx   # (Arquivo de referência/versão anterior)
-├── index.css       # Estilos globais e configuração do Tailwind
-└── main.jsx        # Ponto de entrada da aplicação React
+├── components/   # Shared UI: countdown, Instagram feed, scroll-to-top, common elements
+├── data/         # Static content: team, manifesto, agenda, FAQ
+├── sections/     # One component per page: Home, Team, Manifesto, Calendar, FAQ, Suggestions
+├── App.jsx       # Layout and navigation (History API routing)
+└── main.jsx      # Entry point
+public/           # Logo and team photos
+vercel.json       # Rewrites every route to index.html so deep links work
 ```
 
-## 📜 Scripts Disponíveis
+All content lives in `src/data/`, so text, members and events can be updated without touching the components.
 
-No arquivo `package.json`, você encontrará os seguintes scripts:
+## Author
 
-- `npm run dev`: Inicia o servidor de desenvolvimento.
-- `npm run build`: Compila a aplicação para produção.
-- `npm run lint`: Executa o ESLint para verificar problemas no código.
-- `npm run preview`: Visualiza a versão de produção localmente após o build.
+**Telmo Maciel** · [GitHub](https://github.com/telmomaciel9) · [LinkedIn](https://www.linkedin.com/in/telmo-maciel/)
 
-## 📄 Licença
+## License
 
-Todos os direitos reservados à **Lista A - Aproximar Futuros**.
-© 2025 Lista A.
+See [LICENSE](LICENSE). The campaign name, logo and photos belong to Lista A – Aproximar Futuros.
