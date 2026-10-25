@@ -4,7 +4,7 @@ Official campaign website for **Lista A – Aproximar Futuros**, a candidate lis
 
 **Live:** [aproximarfuturos.pt](https://www.aproximarfuturos.pt/)
 
-![Lista A homepage](docs/screenshot.png)
+![Lista A homepage](screenshot.png)
 
 ## About
 
